@@ -20,4 +20,4 @@ st.markdown("- 🏠 **Home** → Overview of the project")
 st.markdown("- 🔮 **Predictions** → Predict future sales")  
 st.markdown("- 📊 **Visualization** → Explore insights and trends")  
 
-st.success("👉 Use the sidebar to navigate between pages.")
+st.success(" Use the sidebar to navigate between pages.")

@@ -1,0 +1,2 @@
+This project uses regression techniques to predict sales for an e-commerce sales using streamlit 
+The aim of the project is to build a regression algorithm that can predict data driven sales forecasting

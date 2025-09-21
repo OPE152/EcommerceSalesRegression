@@ -3,7 +3,13 @@ import pandas as pd
 import joblib
 
 # Load model
-model = joblib.load("ecom_best_pipeline.pkl")
+import os, joblib
+
+BASE_DIR = os.path.dirname(__file__)  # points to "deployed_app/pages"
+model_path = os.path.join(BASE_DIR, "..", "ecs", "ecom_best_pipeline.pkl")
+model_path = os.path.abspath(model_path)  # makes it a full path
+
+model = joblib.load(model_path)
 
 st.title("📊 E-commerce Sales Prediction")
 

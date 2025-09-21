@@ -13,10 +13,9 @@ images_path = Path("ecs/images")
 
 # Chart dictionary
 plots = {
-    "📈 Units Sold Over Time": ("plot1.png", "This chart shows how units sold fluctuate across time."),
-    "💰 Price vs Units Sold": ("plot2.png", "Illustrates how product pricing affects sales volume."),
-    "🎯 Discount Impact": ("plot3.png", "Highlights the role of discounts in driving higher sales."),
-    "📦 Category Comparison": ("plot4.png", "Compares sales performance across different product categories.")
+    "📈 Units Sold Over Time": ("units_sold_distribution.png", "This chart shows how units sold fluctuate across time."),
+    "💰 Price vs Units Sold": ("Price_Distribution.png", "Illustrates how product pricing affects sales volume."),
+    "📦 Category Comparison": ("Sales_Distribution_by_Product_category.png", "Compares sales performance across different product categories.")
 }
 
 # Sidebar navigation

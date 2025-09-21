@@ -15,7 +15,7 @@ st.title("📊 E-commerce Sales Prediction")
 
 # Inputs
 price = st.number_input("Price", min_value=0.0)
-discount = st.number_input("Discount", min_value=0.0, max_value=1.0, step=0.05)
+discount = st.number_input("Discount", min_value=0.0, max_value=50.0, step=0.05)
 marketing = st.number_input("Marketing Spend", min_value=0.0)
 year = st.number_input("Year", min_value=2020, max_value=2030, step=1)
 month = st.selectbox("Month", list(range(1,13)))

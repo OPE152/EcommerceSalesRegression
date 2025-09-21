@@ -20,7 +20,7 @@ marketing = st.number_input("Marketing Spend", min_value=0.0)
 year = st.number_input("Year", min_value=2020, max_value=2030, step=1)
 month = st.selectbox("Month", list(range(1,13)))
 day = st.selectbox("Day", list(range(1,32)))
-product_category = st.selectbox("Product Category", ["Electronics","Clothing","Furniture"])
+product_category = st.selectbox("Product Category", ["Electronics","Toys","Fashion", "Sports"])
 customer_segment = st.selectbox("Customer Segment", ["Occasional","Regular","Premium"])
 
 if st.button("Predict Sales"):

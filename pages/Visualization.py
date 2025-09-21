@@ -1,34 +1,41 @@
 import streamlit as st
-import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
+from pathlib import Path
+from PIL import Image
 
-st.set_page_config(page_title="Visualizations", page_icon="📊")
+# Page settings
+st.set_page_config(page_title="📊 E-commerce Visualizations", layout="wide")
 
-st.title("📊 Sales Visualization Page")
+st.title("📊 E-commerce Visualizations from Notebook")
+st.markdown("Visual insights generated from **main.ipynb** are displayed here in a structured dashboard.")
 
-st.write("Explore trends and insights from the dataset.")
+# Path to images folder
+images_path = Path("ecs/images")
 
-# Load dataset
-df = pd.read_csv("C:\Users\HP\Documents\Project\deployed_app\ecs\data\ecommerce_output.csv")
+# Chart dictionary
+plots = {
+    "📈 Units Sold Over Time": ("plot1.png", "This chart shows how units sold fluctuate across time."),
+    "💰 Price vs Units Sold": ("plot2.png", "Illustrates how product pricing affects sales volume."),
+    "🎯 Discount Impact": ("plot3.png", "Highlights the role of discounts in driving higher sales."),
+    "📦 Category Comparison": ("plot4.png", "Compares sales performance across different product categories.")
+}
 
-# --- Plot 1: Distribution of Sales ---
-st.subheader("Distribution of Units Sold")
-fig, ax = plt.subplots()
-sns.histplot(df["Units_Sold"], bins=30, kde=True, ax=ax)
-st.pyplot(fig)
-st.caption("Units Sold follow a skewed distribution, with most sales clustering in lower ranges.")
+# Sidebar navigation
+st.sidebar.header("🔍 Select Visualization")
+selected_plot = st.sidebar.radio("Choose a chart to view:", list(plots.keys()))
 
-# --- Plot 2: Price vs Units Sold ---
-st.subheader("Price vs Units Sold")
-fig, ax = plt.subplots()
-sns.scatterplot(x="Price", y="Units_Sold", data=df, hue="Discount", palette="coolwarm", ax=ax)
-st.pyplot(fig)
-st.caption("Higher prices generally reduce sales, while higher discounts boost sales.")
+# Display selected plot in a card
+filename, insight = plots[selected_plot]
+file_path = images_path / filename
 
-# --- Plot 3: Marketing Spend Impact ---
-st.subheader("Marketing Spend vs Units Sold")
-fig, ax = plt.subplots()
-sns.lineplot(x="Marketing_Spend", y="Units_Sold", data=df, ax=ax)
-st.pyplot(fig)
-st.caption("Sales tend to increase as marketing spend rises.")
+if file_path.exists():
+    col1, col2 = st.columns([2, 1])  # two-column layout
+    with col1:
+        image = Image.open(file_path)
+        st.image(image, caption=selected_plot, use_container_width=True)
+
+    with col2:
+        with st.expander("📌 Key Insight", expanded=True):
+            st.write(insight)
+else:
+    st.error(f" {filename} not found in {images_path}")
+

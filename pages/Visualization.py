@@ -3,12 +3,14 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
+st.set_page_config(page_title="Visualizations", page_icon="📊")
+
 st.title("📊 Sales Visualization Page")
 
 st.write("Explore trends and insights from the dataset.")
 
 # Load dataset
-df = pd.read_csv("Ecommerce_Sales_Prediction_Dataset.csv")
+df = pd.read_csv("C:\Users\HP\Documents\Project\deployed_app\ecs\data\ecommerce_output.csv")
 
 # --- Plot 1: Distribution of Sales ---
 st.subheader("Distribution of Units Sold")

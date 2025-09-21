@@ -6,7 +6,7 @@ st.title("🏠 Welcome to the E-commerce Sales Prediction App")
 
 st.write(
     """
-    This app helps businesses **predict product sales** and 
+    This app helps to **predict product sales** and 
     **analyze important trends** using machine learning.  
 
     🔍 **What you can do here:**

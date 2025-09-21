@@ -2,6 +2,8 @@ import streamlit as st
 import pandas as pd
 import joblib
 
+st.set_page_config(page_title="Predictions", page_icon="🔮")
+
 # Load model
 pipe = joblib.load("ecom_best_pipeline.pkl")
 
